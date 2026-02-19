@@ -570,6 +570,126 @@
       margin-bottom: 0;
     }
 
+    /* ── LETTER TO PRODUCERS ── */
+    .letter-section {
+      position: relative;
+      z-index: 2;
+      padding: 6rem 1.5rem;
+      text-align: center;
+      overflow: hidden;
+    }
+    .letter-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 50%, rgba(107,47,160,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .letter-box {
+      max-width: 780px;
+      margin: 3rem auto 0;
+      background: rgba(5,8,16,.9);
+      border: 1px solid rgba(107,47,160,.5);
+      padding: 3rem 3.5rem;
+      position: relative;
+    }
+    .letter-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--monarch-purple), var(--ice-glow), var(--monarch-purple), transparent);
+    }
+    .letter-box::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--monarch-purple), var(--ice-glow), var(--monarch-purple), transparent);
+    }
+
+    .letter-to {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .2rem;
+      color: var(--rune-gold);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      display: block;
+    }
+
+    .quote-rotator {
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .quote-slide {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 1s ease;
+      pointer-events: none;
+    }
+    .quote-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .quote-text {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: clamp(.9rem, 2.2vw, 1.25rem);
+      color: var(--pure-white);
+      line-height: 1.7;
+      font-style: italic;
+      text-shadow: 0 0 30px rgba(107,47,160,.4);
+    }
+    .quote-text::before { content: '"'; color: var(--ice-glow); margin-right: .2rem; }
+    .quote-text::after  { content: '"'; color: var(--ice-glow); margin-left: .2rem; }
+
+    .quote-dots {
+      display: flex;
+      gap: .6rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .qdot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: rgba(107,47,160,.3);
+      border: 1px solid rgba(107,47,160,.5);
+      cursor: pointer;
+      transition: background .3s, box-shadow .3s;
+    }
+    .qdot.active {
+      background: var(--ice-glow);
+      box-shadow: 0 0 10px rgba(77,217,255,.6);
+      border-color: var(--ice-glow);
+    }
+
+    .letter-sig {
+      margin-top: 2rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .72rem;
+      letter-spacing: .15rem;
+      color: rgba(184,197,214,.5);
+    }
+    .letter-sig strong {
+      color: var(--rune-gold);
+    }
+
+    @media (max-width: 580px) {
+      .letter-box { padding: 2rem 1.5rem; }
+      .quote-rotator { min-height: 160px; }
+    }
+
     /* ── SHARE SECTION ── */
     .share-section {
       position: relative;
@@ -941,8 +1061,14 @@
         </div>
 
         <div class="field">
-          <label>Message to Producers <span style="color:var(--shadow-text);font-size:.8em">(optional)</span></label>
-          <textarea id="message" placeholder="Tell the producers why Solo Leveling Season 3 must happen…"></textarea>
+          <label>Message to Producers <span style="color:var(--shadow-text);font-size:.8em">(optional — edit freely)</span></label>
+          <textarea id="message">Dear A-1 Pictures, Aniplex, and Kakao Entertainment,
+
+Solo Leveling is not just an anime — it is proof that a story told with passion can move millions. Sung Jin-woo's journey gave us hope, strength, and the belief that anyone can rise.
+
+Season 3 is the ending this story deserves. Please don't let the Shadow Monarch's legacy end in silence.
+
+We are ready. We are waiting. Arise.</textarea>
         </div>
 
         <div class="agree-row">
@@ -963,6 +1089,55 @@
         <br>
         <p style="font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--rune-gold);">[ MISSION OBJECTIVE UPDATED ]</p>
       </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ LETTER TO PRODUCERS ═══════════ -->
+  <section class="letter-section">
+    <h2 class="section-title">A Message to the Producers</h2>
+    <p class="section-sub">Words from the heart of the fandom.</p>
+
+    <div class="letter-box">
+      <span class="letter-to">▶ To: A-1 Pictures · Aniplex · Kakao Entertainment · Crunchyroll</span>
+
+      <div class="quote-rotator" id="quote-rotator">
+
+        <div class="quote-slide active">
+          <p class="quote-text">You didn't just animate a story — you ignited a world. Season 3 is not a request. It is the answer to millions who found courage in a boy who refused to stay weak.</p>
+        </div>
+
+        <div class="quote-slide">
+          <p class="quote-text">Every frame of Solo Leveling was a promise to fans around the world. Season 3 is how you keep it.</p>
+        </div>
+
+        <div class="quote-slide">
+          <p class="quote-text">Sung Jin-woo taught us that the weakest can become the strongest. Now prove that his story isn't over. The Shadow Monarch must rise one final time.</p>
+        </div>
+
+        <div class="quote-slide">
+          <p class="quote-text">The Shadow Monarch doesn't retreat. Neither do we. We will keep fighting for this story until the last chapter is animated.</p>
+        </div>
+
+        <div class="quote-slide">
+          <p class="quote-text">We don't just want more episodes. We want the ending this story — and these characters — truly deserve. Give us Season 3. Give us the conclusion.</p>
+        </div>
+
+        <div class="quote-slide">
+          <p class="quote-text">Arise. Two seasons were the beginning. Season 3 is the legacy. Don't let the Shadow Army fade into silence — let it march one last time.</p>
+        </div>
+
+      </div>
+
+      <div class="quote-dots" id="quote-dots">
+        <div class="qdot active" onclick="goToQuote(0)"></div>
+        <div class="qdot" onclick="goToQuote(1)"></div>
+        <div class="qdot" onclick="goToQuote(2)"></div>
+        <div class="qdot" onclick="goToQuote(3)"></div>
+        <div class="qdot" onclick="goToQuote(4)"></div>
+        <div class="qdot" onclick="goToQuote(5)"></div>
+      </div>
+
+      <p class="letter-sig">— Signed by <strong id="sig-letter-count">18,743</strong> hunters from around the world</p>
     </div>
   </section>
 
@@ -1047,6 +1222,35 @@
   </footer>
 
   <script>
+    // ── QUOTE ROTATOR ──
+    const slides = document.querySelectorAll('.quote-slide');
+    const dots   = document.querySelectorAll('.qdot');
+    let currentQuote = 0;
+    let quoteTimer;
+
+    function goToQuote(n) {
+      slides[currentQuote].classList.remove('active');
+      dots[currentQuote].classList.remove('active');
+      currentQuote = n;
+      slides[currentQuote].classList.add('active');
+      dots[currentQuote].classList.add('active');
+      clearInterval(quoteTimer);
+      quoteTimer = setInterval(nextQuote, 5000);
+    }
+
+    function nextQuote() {
+      goToQuote((currentQuote + 1) % slides.length);
+    }
+
+    quoteTimer = setInterval(nextQuote, 5000);
+
+    // Sync letter sig count with main counter
+    function updateLetterCount() {
+      const el = document.getElementById('sig-letter-count');
+      if (el) el.textContent = sigs.toLocaleString();
+    }
+    setTimeout(updateLetterCount, 2100);
+
     // ── PARTICLES ──
     const canvas = document.getElementById('particles');
     const ctx    = canvas.getContext('2d');
