@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solo Leveling Season 3 — Rise Again | Petition</title>
+  <meta name="description" content="Sign the petition to bring Solo Leveling Season 3 to life. Join hunters worldwide and send a message to the producers!" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Rajdhani:wght@400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --shadow-blue: #0a0e1a;
+      --deep-void: #050810;
+      --monarch-purple: #6b2fa0;
+      --mana-blue: #1a6fff;
+      --ice-glow: #4dd9ff;
+      --rune-gold: #c8922a;
+      --shadow-text: #b8c5d6;
+      --pure-white: #f0f4ff;
+      --danger-red: #ff3355;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--deep-void);
+      color: var(--shadow-text);
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 18px;
+      min-height: 100vh;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* ── PARTICLE CANVAS ── */
+    #particles {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── BACKGROUND GRID ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(26,111,255,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(26,111,255,.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO SECTION ── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 30%, rgba(107,47,160,.35) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 50% 80%, rgba(26,111,255,.2) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .system-badge {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .75rem;
+      letter-spacing: .2rem;
+      text-transform: uppercase;
+      color: var(--ice-glow);
+      border: 1px solid rgba(77,217,255,.3);
+      padding: .4rem 1.2rem;
+      margin-bottom: 2rem;
+      animation: pulse-badge 3s ease-in-out infinite;
+      position: relative;
+      z-index: 2;
+    }
+
+    @keyframes pulse-badge {
+      0%,100% { box-shadow: 0 0 8px rgba(77,217,255,.3); }
+      50%      { box-shadow: 0 0 20px rgba(77,217,255,.6), 0 0 40px rgba(77,217,255,.2); }
+    }
+
+    .hero-title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--pure-white);
+      text-shadow:
+        0 0 30px rgba(107,47,160,.8),
+        0 0 80px rgba(26,111,255,.4);
+      position: relative;
+      z-index: 2;
+      animation: title-in 1.2s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    @keyframes title-in {
+      from { opacity: 0; transform: translateY(40px) scale(.95); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .hero-title span {
+      display: block;
+      font-size: clamp(1.2rem, 3vw, 2.2rem);
+      color: var(--ice-glow);
+      text-shadow: 0 0 20px rgba(77,217,255,.8);
+      letter-spacing: .15rem;
+      margin-top: .5rem;
+    }
+
+    .rune-divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 2rem auto;
+      max-width: 500px;
+      position: relative;
+      z-index: 2;
+      animation: title-in 1.4s cubic-bezier(.16,1,.3,1) both;
+    }
+    .rune-divider::before,
+    .rune-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(77,217,255,.5), transparent);
+    }
+    .rune-divider .rune {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.2rem;
+      color: var(--rune-gold);
+      text-shadow: 0 0 10px rgba(200,146,42,.6);
+    }
+
+    .hero-subtitle {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
+      font-weight: 500;
+      color: var(--shadow-text);
+      max-width: 640px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 2;
+      animation: title-in 1.6s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    /* ── COUNTER ── */
+    .counter-block {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+      position: relative;
+      z-index: 2;
+      animation: title-in 1.8s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    .counter-item {
+      text-align: center;
+      padding: 1.2rem 2rem;
+      border: 1px solid rgba(107,47,160,.4);
+      background: rgba(10,14,26,.7);
+      backdrop-filter: blur(8px);
+      position: relative;
+      overflow: hidden;
+    }
+    .counter-item::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(107,47,160,.1), transparent);
+    }
+    .counter-num {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--ice-glow);
+      text-shadow: 0 0 20px rgba(77,217,255,.5);
+      display: block;
+      line-height: 1;
+    }
+    .counter-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .7rem;
+      letter-spacing: .15rem;
+      color: var(--rune-gold);
+      text-transform: uppercase;
+      margin-top: .3rem;
+    }
+
+    /* ── PROGRESS BAR ── */
+    .progress-wrapper {
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      position: relative;
+      z-index: 2;
+      animation: title-in 2s cubic-bezier(.16,1,.3,1) both;
+    }
+    .progress-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: .5rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .75rem;
+      letter-spacing: .1rem;
+      color: var(--rune-gold);
+    }
+    .progress-track {
+      height: 8px;
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(77,217,255,.2);
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--monarch-purple), var(--mana-blue), var(--ice-glow));
+      box-shadow: 0 0 12px rgba(77,217,255,.6);
+      transition: width 2s cubic-bezier(.16,1,.3,1);
+      position: relative;
+    }
+    .progress-fill::after {
+      content: '';
+      position: absolute;
+      right: 0; top: 0; bottom: 0;
+      width: 20px;
+      background: rgba(255,255,255,.3);
+      filter: blur(4px);
+      animation: shimmer 1.5s ease-in-out infinite;
+    }
+    @keyframes shimmer { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+
+    /* ── FORM SECTION ── */
+    .form-section {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--pure-white);
+      text-align: center;
+      margin-bottom: .5rem;
+      text-shadow: 0 0 20px rgba(107,47,160,.5);
+    }
+    .section-sub {
+      text-align: center;
+      color: var(--shadow-text);
+      margin-bottom: 2.5rem;
+      font-weight: 500;
+    }
+
+    .form-panel {
+      background: rgba(10,14,26,.8);
+      border: 1px solid rgba(107,47,160,.4);
+      backdrop-filter: blur(16px);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--monarch-purple), var(--mana-blue), var(--ice-glow), transparent);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 520px) { .form-row { grid-template-columns: 1fr; } }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: .4rem;
+      margin-bottom: 1.2rem;
+    }
+    .field label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .75rem;
+      letter-spacing: .12rem;
+      color: var(--ice-glow);
+      text-transform: uppercase;
+    }
+    .field input,
+    .field select,
+    .field textarea {
+      background: rgba(5,8,16,.8);
+      border: 1px solid rgba(107,47,160,.4);
+      color: var(--pure-white);
+      padding: .8rem 1rem;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      outline: none;
+      transition: border-color .3s, box-shadow .3s;
+      width: 100%;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--mana-blue);
+      box-shadow: 0 0 0 3px rgba(26,111,255,.15), 0 0 20px rgba(26,111,255,.1);
+    }
+    .field select option { background: #0a0e1a; }
+    .field textarea { resize: vertical; min-height: 100px; }
+
+    .agree-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .8rem;
+      margin-bottom: 1.5rem;
+      font-size: .9rem;
+      color: var(--shadow-text);
+    }
+    .agree-row input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--mana-blue);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .btn-sign {
+      width: 100%;
+      padding: 1.1rem;
+      background: linear-gradient(135deg, var(--monarch-purple), var(--mana-blue));
+      border: none;
+      color: var(--pure-white);
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: .1rem;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .3s;
+      text-transform: uppercase;
+    }
+    .btn-sign:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(107,47,160,.5), 0 0 40px rgba(26,111,255,.3);
+    }
+    .btn-sign::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.1), transparent);
+      opacity: 0;
+      transition: opacity .3s;
+    }
+    .btn-sign:hover::before { opacity: 1; }
+    .btn-sign:active { transform: translateY(0); }
+
+    /* ── SUCCESS MESSAGE ── */
+    .success-msg {
+      display: none;
+      text-align: center;
+      padding: 2rem;
+    }
+    .success-msg .success-icon {
+      font-size: 3rem;
+      color: var(--ice-glow);
+      text-shadow: 0 0 20px rgba(77,217,255,.6);
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .success-msg h3 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1.5rem;
+      color: var(--pure-white);
+      margin-bottom: .5rem;
+    }
+    .success-msg p { color: var(--shadow-text); }
+
+    /* ── WHY SECTION ── */
+    .why-section {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 1.5rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .card {
+      background: rgba(10,14,26,.7);
+      border: 1px solid rgba(107,47,160,.3);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(77,217,255,.5);
+      box-shadow: 0 8px 30px rgba(26,111,255,.15);
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--monarch-purple), var(--ice-glow));
+      transform: scaleX(0);
+      transition: transform .3s;
+      transform-origin: left;
+    }
+    .card:hover::before { transform: scaleX(1); }
+
+    .card-icon {
+      font-size: 2.2rem;
+      display: block;
+      margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1rem;
+      color: var(--pure-white);
+      margin-bottom: .6rem;
+    }
+    .card p {
+      font-size: .95rem;
+      line-height: 1.7;
+      color: var(--shadow-text);
+    }
+
+    /* ── SHARE SECTION ── */
+    .share-section {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 4rem 1.5rem;
+      background: rgba(107,47,160,.06);
+      border-top: 1px solid rgba(107,47,160,.2);
+      border-bottom: 1px solid rgba(107,47,160,.2);
+    }
+
+    .share-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+
+    .share-btn {
+      padding: .7rem 1.5rem;
+      border: 1px solid;
+      background: transparent;
+      cursor: pointer;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: .08rem;
+      transition: all .3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .share-btn.twitter { border-color: rgba(29,161,242,.5); color: #1da1f2; }
+    .share-btn.twitter:hover { background: rgba(29,161,242,.1); box-shadow: 0 0 20px rgba(29,161,242,.2); }
+    .share-btn.reddit  { border-color: rgba(255,69,0,.5); color: #ff4500; }
+    .share-btn.reddit:hover  { background: rgba(255,69,0,.1); box-shadow: 0 0 20px rgba(255,69,0,.2); }
+    .share-btn.copy    { border-color: rgba(77,217,255,.4); color: var(--ice-glow); }
+    .share-btn.copy:hover    { background: rgba(77,217,255,.08); box-shadow: 0 0 20px rgba(77,217,255,.2); }
+
+    /* ── FOOTER ── */
+    footer {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .75rem;
+      letter-spacing: .1rem;
+      color: rgba(184,197,214,.4);
+    }
+    footer a { color: rgba(77,217,255,.5); text-decoration: none; }
+    footer a:hover { color: var(--ice-glow); }
+
+    /* ── FLOATING RUNES ── */
+    .rune-float {
+      position: fixed;
+      font-family: 'Cinzel Decorative', cursive;
+      color: rgba(107,47,160,.15);
+      font-size: 8rem;
+      pointer-events: none;
+      z-index: 0;
+      user-select: none;
+      animation: rune-drift 20s ease-in-out infinite;
+    }
+    .rune-float:nth-child(1) { top: 10%; left: -2%; animation-delay: 0s; }
+    .rune-float:nth-child(2) { top: 60%; right: -2%; animation-delay: -10s; font-size: 6rem; color: rgba(26,111,255,.1); }
+    @keyframes rune-drift {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      50%      { transform: translateY(-30px) rotate(5deg); }
+    }
+
+    /* ── SYSTEM NOTIFICATION ── */
+    .sys-notif {
+      position: fixed;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(10,14,26,.95);
+      border: 1px solid rgba(77,217,255,.4);
+      padding: 1rem 1.5rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .75rem;
+      color: var(--ice-glow);
+      letter-spacing: .08rem;
+      z-index: 100;
+      max-width: 280px;
+      animation: notif-in 1s cubic-bezier(.16,1,.3,1) 3s both, notif-out 1s ease 7s both;
+      box-shadow: 0 0 30px rgba(77,217,255,.2);
+    }
+    .sys-notif::before {
+      content: '▶ SYSTEM:';
+      display: block;
+      color: var(--rune-gold);
+      margin-bottom: .3rem;
+    }
+    @keyframes notif-in {
+      from { opacity: 0; transform: translateX(20px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes notif-out {
+      from { opacity: 1; }
+      to   { opacity: 0; pointer-events: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .form-panel { padding: 1.5rem; }
+      .counter-block { gap: 1rem; }
+      .counter-item { padding: .8rem 1.2rem; }
+      .counter-num { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating runes -->
+  <div class="rune-float">S</div>
+  <div class="rune-float">L</div>
+
+  <!-- Particle canvas -->
+  <canvas id="particles"></canvas>
+
+  <!-- System notification -->
+  <div class="sys-notif">New quest available: Arise, Hunters. Sign the petition.</div>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <section class="hero">
+    <div class="system-badge">⬡ System Notification — Hunter Alliance</div>
+
+    <h1 class="hero-title">
+      Solo Leveling
+      <span>Season 3 — Arise Again</span>
+    </h1>
+
+    <div class="rune-divider">
+      <span class="rune">◈</span>
+      <span class="rune">◈</span>
+      <span class="rune">◈</span>
+    </div>
+
+    <p class="hero-subtitle">
+      The Shadow Monarch's story is not over. Join hunters from around the world
+      and send an undeniable message to the producers: <strong>we want more</strong>.
+      Sung Jinwoo must rise again.
+    </p>
+
+    <!-- Live Counter -->
+    <div class="counter-block">
+      <div class="counter-item">
+        <span class="counter-num" id="sig-count">0</span>
+        <span class="counter-label">Hunters Signed</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" id="country-count">0</span>
+        <span class="counter-label">Countries</span>
+      </div>
+      <div class="counter-item">
+        <span class="counter-num" id="goal-count">50,000</span>
+        <span class="counter-label">Our Goal</span>
+      </div>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-wrapper">
+      <div class="progress-header">
+        <span>MISSION PROGRESS</span>
+        <span id="pct">0%</span>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="progress-fill"></div>
+      </div>
+    </div>
+
+    <a href="#sign" style="
+      display: inline-block;
+      padding: .9rem 2.5rem;
+      background: linear-gradient(135deg, var(--monarch-purple), var(--mana-blue));
+      color: var(--pure-white);
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: 1rem;
+      text-decoration: none;
+      letter-spacing: .1rem;
+      position: relative; z-index: 2;
+      transition: transform .2s, box-shadow .3s;
+      box-shadow: 0 4px 20px rgba(107,47,160,.4);
+    "
+    onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 30px rgba(107,47,160,.6)'"
+    onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(107,47,160,.4)'"
+    >⚔ Join the Hunt</a>
+  </section>
+
+  <!-- ═══════════ WHY SECTION ═══════════ -->
+  <section class="why-section">
+    <h2 class="section-title">Why Season 3 Matters</h2>
+    <p class="section-sub">The story has so much left to tell.</p>
+
+    <div class="cards-grid">
+      <div class="card">
+        <span class="card-icon">👑</span>
+        <h3>The Monarch War</h3>
+        <p>The full-scale conflict between Monarchs and Rulers remains the ultimate arc — the fate of two worlds hangs in the balance.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🌍</span>
+        <h3>Global Fanbase</h3>
+        <p>Millions of fans across every continent have made Solo Leveling one of the most beloved manhwa adaptations of all time.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">⚡</span>
+        <h3>Unfinished Power</span></h3>
+        <p>Sung Jinwoo's journey as the Shadow Monarch deserves a complete, faithful animated conclusion — not silence.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🎌</span>
+        <h3>A-1 Pictures Quality</h3>
+        <p>The animation, music, and direction set a new standard. This team must return to deliver the ending fans deserve.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ FORM ═══════════ -->
+  <section class="form-section" id="sign">
+    <h2 class="section-title">Sign the Petition</h2>
+    <p class="section-sub">Your voice counts. Every signature matters.</p>
+
+    <div class="form-panel">
+      <div id="form-content">
+        <div class="form-row">
+          <div class="field">
+            <label>First Name *</label>
+            <input type="text" id="fname" placeholder="Sung" required />
+          </div>
+          <div class="field">
+            <label>Last Name *</label>
+            <input type="text" id="lname" placeholder="Jinwoo" required />
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Email *</label>
+          <input type="email" id="email" placeholder="hunter@system.net" required />
+        </div>
+
+        <div class="field">
+          <label>Country *</label>
+          <select id="country">
+            <option value="">— Select your country —</option>
+            <option>Italy</option><option>Japan</option><option>South Korea</option>
+            <option>United States</option><option>United Kingdom</option>
+            <option>France</option><option>Germany</option><option>Spain</option>
+            <option>Brazil</option><option>Mexico</option><option>Argentina</option>
+            <option>Canada</option><option>Australia</option><option>Indonesia</option>
+            <option>Philippines</option><option>Thailand</option><option>Vietnam</option>
+            <option>India</option><option>Turkey</option><option>Russia</option>
+            <option>China</option><option>Taiwan</option><option>Hong Kong</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Message to Producers <span style="color:var(--shadow-text);font-size:.8em">(optional)</span></label>
+          <textarea id="message" placeholder="Tell the producers why Solo Leveling Season 3 must happen…"></textarea>
+        </div>
+
+        <div class="agree-row">
+          <input type="checkbox" id="agree" />
+          <label for="agree" style="cursor:pointer;">
+            I agree that my name and country may be publicly displayed as part of this petition.
+            My email will <strong>never</strong> be shared.
+          </label>
+        </div>
+
+        <button class="btn-sign" onclick="handleSign()">⚔ ARISE — Sign the Petition</button>
+      </div>
+
+      <div class="success-msg" id="success-msg">
+        <span class="success-icon">◈</span>
+        <h3>You Have Arisen.</h3>
+        <p>Your signature has been added, Hunter. Share this petition to amplify our call.</p>
+        <br>
+        <p style="font-family:'Share Tech Mono',monospace;font-size:.8rem;color:var(--rune-gold);">[ MISSION OBJECTIVE UPDATED ]</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SHARE ═══════════ -->
+  <section class="share-section">
+    <h2 class="section-title">Spread the Word</h2>
+    <p class="section-sub">The more hunters we gather, the louder our voice. Share now.</p>
+
+    <div class="share-buttons">
+      <a class="share-btn twitter" id="tw-btn" href="#" target="_blank" rel="noopener">
+        𝕏 Share on X / Twitter
+      </a>
+      <a class="share-btn reddit" id="rd-btn" href="#" target="_blank" rel="noopener">
+        ⬆ Share on Reddit
+      </a>
+      <button class="share-btn copy" onclick="copyLink()">
+        🔗 Copy Petition Link
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <p>Solo Leveling Season 3 Petition — Fan-made initiative. Not affiliated with A-1 Pictures, Crunchyroll, or Kakao Entertainment.</p>
+    <br>
+    <p>Solo Leveling © Chugong / D&C Media · Animation © A-1 Pictures</p>
+  </footer>
+
+  <script>
+    // ── PARTICLES ──
+    const canvas = document.getElementById('particles');
+    const ctx    = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width  = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function createParticle() {
+      return {
+        x:    Math.random() * canvas.width,
+        y:    Math.random() * canvas.height,
+        r:    Math.random() * 1.5 + .3,
+        vx:   (Math.random() - .5) * .4,
+        vy:  -(Math.random() * .6 + .2),
+        alpha: Math.random() * .6 + .1,
+        color: Math.random() > .5
+          ? `rgba(77,217,255,`
+          : `rgba(107,47,160,`
+      };
+    }
+
+    for (let i = 0; i < 100; i++) particles.push(createParticle());
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, i) => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = p.color + p.alpha + ')';
+        ctx.fill();
+        p.x += p.vx; p.y += p.vy; p.alpha -= .001;
+        if (p.alpha <= 0 || p.y < -10) particles[i] = createParticle();
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+
+    // ── COUNTER ANIMATION ──
+    const GOAL = 50000;
+    // For demo, start with a realistic number stored in localStorage
+    let sigs = parseInt(localStorage.getItem('sl_sigs') || '18743');
+
+    function animateNum(el, target, duration = 2000) {
+      const start = performance.now();
+      const from  = 0;
+      function step(now) {
+        const t   = Math.min((now - start) / duration, 1);
+        const val = Math.round(from + (target - from) * (t < .5 ? 2*t*t : 1-Math.pow(-2*t+2,2)/2));
+        el.textContent = val.toLocaleString();
+        if (t < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+
+    function updateUI() {
+      animateNum(document.getElementById('sig-count'), sigs);
+      animateNum(document.getElementById('country-count'), Math.min(Math.floor(sigs / 800), 72));
+      const pct = Math.min(Math.round((sigs / GOAL) * 100), 100);
+      setTimeout(() => {
+        document.getElementById('progress-fill').style.width = pct + '%';
+        document.getElementById('pct').textContent = pct + '%';
+      }, 500);
+    }
+    updateUI();
+
+    // ── FORM SUBMIT ──
+    function handleSign() {
+      const fname  = document.getElementById('fname').value.trim();
+      const lname  = document.getElementById('lname').value.trim();
+      const email  = document.getElementById('email').value.trim();
+      const country = document.getElementById('country').value;
+      const agree  = document.getElementById('agree').checked;
+
+      if (!fname || !lname || !email || !country) {
+        alert('Please fill in all required fields.');
+        return;
+      }
+      if (!email.includes('@')) {
+        alert('Please enter a valid email address.');
+        return;
+      }
+      if (!agree) {
+        alert('Please accept the terms to sign the petition.');
+        return;
+      }
+
+      // Check already signed
+      if (localStorage.getItem('sl_signed')) {
+        alert('You have already signed this petition. Thank you, Hunter!');
+        return;
+      }
+
+      sigs++;
+      localStorage.setItem('sl_sigs', sigs);
+      localStorage.setItem('sl_signed', '1');
+
+      document.getElementById('form-content').style.display = 'none';
+      document.getElementById('success-msg').style.display  = 'block';
+      updateUI();
+    }
+
+    // ── SHARE BUTTONS ──
+    const shareText = encodeURIComponent('I just signed the petition for Solo Leveling Season 3! Join hunters worldwide and tell the producers we want more! ⚔ #SoloLeveling #Arise');
+    const shareUrl  = encodeURIComponent(window.location.href);
+
+    document.getElementById('tw-btn').href =
+      `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
+
+    document.getElementById('rd-btn').href =
+      `https://www.reddit.com/submit?url=${shareUrl}&title=${shareText}`;
+
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        alert('✔ Link copied! Share it everywhere, Hunter.');
+      });
+    }
+
+    // ── INTERSECTION OBSERVER for card animations ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: .15 });
+
+    document.querySelectorAll('.card').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = `opacity .6s ${i * .1}s, transform .6s ${i * .1}s, border-color .3s, box-shadow .3s`;
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
