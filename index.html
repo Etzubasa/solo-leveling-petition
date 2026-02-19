@@ -476,26 +476,52 @@
     }
 
     .share-btn {
-      padding: .7rem 1.5rem;
-      border: 1px solid;
-      background: transparent;
+      padding: .9rem 2rem;
+      border: 2px solid;
       cursor: pointer;
       font-family: 'Rajdhani', sans-serif;
-      font-size: 1rem;
-      font-weight: 600;
+      font-size: 1.05rem;
+      font-weight: 700;
       letter-spacing: .08rem;
-      transition: all .3s;
+      transition: all .25s;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: .5rem;
+      gap: .6rem;
+      border-radius: 2px;
     }
-    .share-btn.twitter { border-color: rgba(29,161,242,.5); color: #1da1f2; }
-    .share-btn.twitter:hover { background: rgba(29,161,242,.1); box-shadow: 0 0 20px rgba(29,161,242,.2); }
-    .share-btn.reddit  { border-color: rgba(255,69,0,.5); color: #ff4500; }
-    .share-btn.reddit:hover  { background: rgba(255,69,0,.1); box-shadow: 0 0 20px rgba(255,69,0,.2); }
-    .share-btn.copy    { border-color: rgba(77,217,255,.4); color: var(--ice-glow); }
-    .share-btn.copy:hover    { background: rgba(77,217,255,.08); box-shadow: 0 0 20px rgba(77,217,255,.2); }
+    .share-btn.twitter {
+      background: rgba(29,161,242,.2);
+      border-color: #1da1f2;
+      color: #ffffff;
+    }
+    .share-btn.twitter:hover {
+      background: #1da1f2;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(29,161,242,.5);
+      transform: translateY(-2px);
+    }
+    .share-btn.reddit {
+      background: rgba(255,69,0,.2);
+      border-color: #ff4500;
+      color: #ffffff;
+    }
+    .share-btn.reddit:hover {
+      background: #ff4500;
+      color: #fff;
+      box-shadow: 0 0 25px rgba(255,69,0,.5);
+      transform: translateY(-2px);
+    }
+    .share-btn.copy {
+      background: rgba(77,217,255,.15);
+      border-color: #4dd9ff;
+      color: #ffffff;
+    }
+    .share-btn.copy:hover {
+      background: rgba(77,217,255,.3);
+      box-shadow: 0 0 25px rgba(77,217,255,.4);
+      transform: translateY(-2px);
+    }
 
     /* ── FOOTER ── */
     footer {
@@ -875,8 +901,8 @@
     }
 
     // ── SHARE BUTTONS ──
-    const shareText = encodeURIComponent('I just signed the petition for Solo Leveling Season 3! Join hunters worldwide and tell the producers we want more! ⚔ #SoloLeveling #Arise');
-    const shareUrl  = encodeURIComponent(window.location.href);
+    const shareText = encodeURIComponent('I just signed the petition for Solo Leveling Season 3! Join hunters worldwide and show the producers we want more! ⚔ #SoloLeveling #Arise #Season3');
+    const shareUrl  = encodeURIComponent('https://etzubasa.github.io/solo-leveling-petition/');
 
     document.getElementById('tw-btn').href =
       `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
@@ -885,7 +911,7 @@
       `https://www.reddit.com/submit?url=${shareUrl}&title=${shareText}`;
 
     function copyLink() {
-      navigator.clipboard.writeText(window.location.href).then(() => {
+      navigator.clipboard.writeText('https://etzubasa.github.io/solo-leveling-petition/').then(() => {
         alert('✔ Link copied! Share it everywhere, Hunter.');
       });
     }
