@@ -456,71 +456,199 @@
       color: var(--shadow-text);
     }
 
+    /* ── CHARACTERS SECTION ── */
+    .characters-section {
+      position: relative;
+      z-index: 2;
+      padding: 5rem 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .chars-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .char-card {
+      background: rgba(10,14,26,.85);
+      border: 1px solid rgba(107,47,160,.35);
+      text-align: center;
+      padding: 0 0 1.5rem 0;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s, border-color .3s, box-shadow .3s;
+      cursor: default;
+    }
+    .char-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--ice-glow);
+      box-shadow: 0 12px 40px rgba(77,217,255,.15);
+    }
+
+    /* Stylized portrait placeholder with CSS art */
+    .char-portrait {
+      width: 100%;
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.2rem;
+    }
+    .char-portrait .char-silhouette {
+      font-size: 7rem;
+      line-height: 1;
+      position: relative;
+      z-index: 2;
+      filter: drop-shadow(0 0 20px currentColor);
+    }
+    .char-portrait::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--char-bg);
+      opacity: .25;
+    }
+    .char-portrait::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 60%;
+      background: linear-gradient(to top, rgba(10,14,26,1), transparent);
+      z-index: 1;
+    }
+
+    /* Individual character colors */
+    .char-jinwoo  { --char-bg: radial-gradient(ellipse at 50% 30%, #6b2fa0 0%, #050810 70%); }
+    .char-jinwoo .char-silhouette  { color: #9b5de5; }
+    .char-haein   { --char-bg: radial-gradient(ellipse at 50% 30%, #1a6fff 0%, #050810 70%); }
+    .char-haein .char-silhouette   { color: #4dd9ff; }
+    .char-beru    { --char-bg: radial-gradient(ellipse at 50% 30%, #ff3355 0%, #050810 70%); }
+    .char-beru .char-silhouette    { color: #ff6680; }
+    .char-igris   { --char-bg: radial-gradient(ellipse at 50% 30%, #c8922a 0%, #050810 70%); }
+    .char-igris .char-silhouette   { color: #c8922a; }
+    .char-thomas  { --char-bg: radial-gradient(ellipse at 50% 30%, #00c896 0%, #050810 70%); }
+    .char-thomas .char-silhouette  { color: #00c896; }
+
+    .char-rank {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .18rem;
+      color: var(--rune-gold);
+      text-transform: uppercase;
+      margin-bottom: .3rem;
+      display: block;
+    }
+    .char-name {
+      font-family: 'Cinzel Decorative', cursive;
+      font-size: .95rem;
+      color: var(--pure-white);
+      margin-bottom: .3rem;
+      padding: 0 1rem;
+    }
+    .char-title {
+      font-size: .85rem;
+      color: var(--ice-glow);
+      font-weight: 600;
+      margin-bottom: .6rem;
+      padding: 0 1rem;
+    }
+    .char-desc {
+      font-size: .82rem;
+      color: var(--shadow-text);
+      line-height: 1.5;
+      padding: 0 1rem;
+    }
+
+    .char-top-bar {
+      height: 3px;
+      background: var(--char-accent, linear-gradient(90deg, var(--monarch-purple), var(--ice-glow)));
+      margin-bottom: 0;
+    }
+
     /* ── SHARE SECTION ── */
     .share-section {
       position: relative;
       z-index: 2;
       text-align: center;
-      padding: 4rem 1.5rem;
-      background: rgba(107,47,160,.06);
-      border-top: 1px solid rgba(107,47,160,.2);
-      border-bottom: 1px solid rgba(107,47,160,.2);
+      padding: 5rem 1.5rem;
+      background: rgba(107,47,160,.05);
+      border-top: 1px solid rgba(107,47,160,.25);
+      border-bottom: 1px solid rgba(107,47,160,.25);
     }
 
-    .share-buttons {
+    .share-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .7rem;
+      letter-spacing: .3rem;
+      color: var(--rune-gold);
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .share-icons {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 1.2rem;
       justify-content: center;
       margin-top: 2rem;
     }
 
-    .share-btn {
-      padding: .9rem 2rem;
-      border: 2px solid;
-      cursor: pointer;
-      font-family: 'Rajdhani', sans-serif;
-      font-size: 1.05rem;
-      font-weight: 700;
-      letter-spacing: .08rem;
-      transition: all .25s;
-      text-decoration: none;
-      display: inline-flex;
+    .soc-btn {
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: .6rem;
-      border-radius: 2px;
+      gap: .5rem;
+      text-decoration: none;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      transition: transform .25s;
     }
-    .share-btn.twitter {
-      background: rgba(29,161,242,.2);
-      border-color: #1da1f2;
-      color: #ffffff;
+    .soc-btn:hover { transform: translateY(-5px); }
+
+    .soc-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      border: 2px solid;
+      transition: box-shadow .25s, background .25s;
     }
-    .share-btn.twitter:hover {
-      background: #1da1f2;
-      color: #fff;
-      box-shadow: 0 0 25px rgba(29,161,242,.5);
-      transform: translateY(-2px);
-    }
-    .share-btn.reddit {
-      background: rgba(255,69,0,.2);
-      border-color: #ff4500;
-      color: #ffffff;
-    }
-    .share-btn.reddit:hover {
-      background: #ff4500;
-      color: #fff;
-      box-shadow: 0 0 25px rgba(255,69,0,.5);
-      transform: translateY(-2px);
-    }
-    .share-btn.copy {
-      background: rgba(77,217,255,.15);
-      border-color: #4dd9ff;
-      color: #ffffff;
-    }
-    .share-btn.copy:hover {
-      background: rgba(77,217,255,.3);
-      box-shadow: 0 0 25px rgba(77,217,255,.4);
-      transform: translateY(-2px);
+
+    .soc-btn.s-x    .soc-icon { background: rgba(255,255,255,.08); border-color: #e7e9ea; color: #fff; }
+    .soc-btn.s-x:hover .soc-icon { background: #e7e9ea; color: #000; box-shadow: 0 0 20px rgba(231,233,234,.35); }
+
+    .soc-btn.s-reddit .soc-icon { background: rgba(255,69,0,.12); border-color: #ff4500; color: #ff4500; }
+    .soc-btn.s-reddit:hover .soc-icon { background: #ff4500; color: #fff; box-shadow: 0 0 20px rgba(255,69,0,.45); }
+
+    .soc-btn.s-telegram .soc-icon { background: rgba(0,136,204,.12); border-color: #0088cc; color: #0088cc; }
+    .soc-btn.s-telegram:hover .soc-icon { background: #0088cc; color: #fff; box-shadow: 0 0 20px rgba(0,136,204,.45); }
+
+    .soc-btn.s-facebook .soc-icon { background: rgba(24,119,242,.12); border-color: #1877f2; color: #1877f2; }
+    .soc-btn.s-facebook:hover .soc-icon { background: #1877f2; color: #fff; box-shadow: 0 0 20px rgba(24,119,242,.45); }
+
+    .soc-btn.s-whatsapp .soc-icon { background: rgba(37,211,102,.12); border-color: #25d366; color: #25d366; }
+    .soc-btn.s-whatsapp:hover .soc-icon { background: #25d366; color: #fff; box-shadow: 0 0 20px rgba(37,211,102,.45); }
+
+    .soc-btn.s-copy .soc-icon { background: rgba(77,217,255,.1); border-color: #4dd9ff; color: #4dd9ff; }
+    .soc-btn.s-copy:hover .soc-icon { background: rgba(77,217,255,.25); box-shadow: 0 0 20px rgba(77,217,255,.4); }
+
+    .soc-label {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: .65rem;
+      letter-spacing: .1rem;
+      color: var(--shadow-text);
+      text-transform: uppercase;
     }
 
     /* ── FOOTER ── */
@@ -703,6 +831,76 @@
     </div>
   </section>
 
+  <!-- ═══════════ CHARACTERS ═══════════ -->
+  <section class="characters-section">
+    <h2 class="section-title">The Hunters We Fight For</h2>
+    <p class="section-sub">Their story deserves a conclusion. Season 3 must happen.</p>
+
+    <div class="chars-grid">
+
+      <!-- Sung Jinwoo -->
+      <div class="char-card char-jinwoo">
+        <div class="char-top-bar" style="background: linear-gradient(90deg,#6b2fa0,#9b5de5);"></div>
+        <div class="char-portrait char-jinwoo">
+          <span class="char-silhouette">🗡️</span>
+        </div>
+        <span class="char-rank">★★★★★ S-Rank</span>
+        <div class="char-name">Sung Jin-woo</div>
+        <div class="char-title">Shadow Monarch</div>
+        <p class="char-desc">The weakest hunter who became the strongest. His transformation from E-Rank to Shadow Monarch is the beating heart of Solo Leveling.</p>
+      </div>
+
+      <!-- Cha Hae-In -->
+      <div class="char-card char-haein">
+        <div class="char-top-bar" style="background: linear-gradient(90deg,#1a6fff,#4dd9ff);"></div>
+        <div class="char-portrait char-haein">
+          <span class="char-silhouette">⚔️</span>
+        </div>
+        <span class="char-rank">★★★★★ S-Rank</span>
+        <div class="char-name">Cha Hae-In</div>
+        <div class="char-title">Sword Saint</div>
+        <p class="char-desc">Korea's finest female hunter. Her bond with Jinwoo and her unrivaled sword mastery make her an unforgettable character.</p>
+      </div>
+
+      <!-- Beru -->
+      <div class="char-card char-beru">
+        <div class="char-top-bar" style="background: linear-gradient(90deg,#ff3355,#ff6680);"></div>
+        <div class="char-portrait char-beru">
+          <span class="char-silhouette">🪲</span>
+        </div>
+        <span class="char-rank">Shadow Marshal</span>
+        <div class="char-name">Beru</div>
+        <div class="char-title">King of Ants</div>
+        <p class="char-desc">The fearsome Ant King, now the most loyal — and theatrical — shadow soldier. His comedic side is as iconic as his terrifying power.</p>
+      </div>
+
+      <!-- Igris -->
+      <div class="char-card char-igris">
+        <div class="char-top-bar" style="background: linear-gradient(90deg,#c8922a,#ffe066);"></div>
+        <div class="char-portrait char-igris">
+          <span class="char-silhouette">🛡️</span>
+        </div>
+        <span class="char-rank">Shadow Marshal</span>
+        <div class="char-name">Igris</div>
+        <div class="char-title">Blood-Red Commander</div>
+        <p class="char-desc">The first and most trusted shadow. A knight of unbreakable loyalty, Igris embodies the bond between Jinwoo and his army.</p>
+      </div>
+
+      <!-- Thomas Andre -->
+      <div class="char-card char-thomas">
+        <div class="char-top-bar" style="background: linear-gradient(90deg,#00c896,#00ffe0);"></div>
+        <div class="char-portrait char-thomas">
+          <span class="char-silhouette">💪</span>
+        </div>
+        <span class="char-rank">★★★★★ National-Level</span>
+        <div class="char-name">Thomas Andre</div>
+        <div class="char-title">Goliath — #1 USA</div>
+        <p class="char-desc">The most powerful hunter in America and one of the five National Level Hunters. His confrontation with Jinwoo is legendary.</p>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ═══════════ FORM ═══════════ -->
   <section class="form-section" id="sign">
     <h2 class="section-title">Sign the Petition</h2>
@@ -771,18 +969,73 @@
   <!-- ═══════════ SHARE ═══════════ -->
   <section class="share-section">
     <h2 class="section-title">Spread the Word</h2>
-    <p class="section-sub">The more hunters we gather, the louder our voice. Share now.</p>
+    <p class="section-sub">The more hunters we gather, the louder our voice.</p>
 
-    <div class="share-buttons">
-      <a class="share-btn twitter" id="tw-btn" href="#" target="_blank" rel="noopener">
-        𝕏 Share on X / Twitter
+    <span class="share-label">◈ Share the Petition ◈</span>
+
+    <div class="share-icons">
+
+      <!-- X / Twitter -->
+      <a class="soc-btn s-x" id="tw-btn" href="#" target="_blank" rel="noopener">
+        <span class="soc-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.741l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </span>
+        <span class="soc-label">X / Twitter</span>
       </a>
-      <a class="share-btn reddit" id="rd-btn" href="#" target="_blank" rel="noopener">
-        ⬆ Share on Reddit
+
+      <!-- Reddit -->
+      <a class="soc-btn s-reddit" id="rd-btn" href="#" target="_blank" rel="noopener">
+        <span class="soc-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/>
+          </svg>
+        </span>
+        <span class="soc-label">Reddit</span>
       </a>
-      <button class="share-btn copy" onclick="copyLink()">
-        🔗 Copy Petition Link
+
+      <!-- Telegram -->
+      <a class="soc-btn s-telegram" id="tg-btn" href="#" target="_blank" rel="noopener">
+        <span class="soc-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
+          </svg>
+        </span>
+        <span class="soc-label">Telegram</span>
+      </a>
+
+      <!-- Facebook -->
+      <a class="soc-btn s-facebook" id="fb-btn" href="#" target="_blank" rel="noopener">
+        <span class="soc-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+          </svg>
+        </span>
+        <span class="soc-label">Facebook</span>
+      </a>
+
+      <!-- WhatsApp -->
+      <a class="soc-btn s-whatsapp" id="wa-btn" href="#" target="_blank" rel="noopener">
+        <span class="soc-icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+          </svg>
+        </span>
+        <span class="soc-label">WhatsApp</span>
+      </a>
+
+      <!-- Copy Link -->
+      <button class="soc-btn s-copy" onclick="copyLink()">
+        <span class="soc-icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+          </svg>
+        </span>
+        <span class="soc-label">Copy Link</span>
       </button>
+
     </div>
   </section>
 
@@ -901,8 +1154,9 @@
     }
 
     // ── SHARE BUTTONS ──
-    const shareText = encodeURIComponent('I just signed the petition for Solo Leveling Season 3! Join hunters worldwide and show the producers we want more! ⚔ #SoloLeveling #Arise #Season3');
-    const shareUrl  = encodeURIComponent('https://etzubasa.github.io/solo-leveling-petition/');
+    const PETITION_URL = 'https://etzubasa.github.io/solo-leveling-petition/';
+    const shareText    = encodeURIComponent('I just signed the petition for Solo Leveling Season 3! Join hunters worldwide and show the producers we want more! ⚔ #SoloLeveling #Arise #Season3');
+    const shareUrl     = encodeURIComponent(PETITION_URL);
 
     document.getElementById('tw-btn').href =
       `https://twitter.com/intent/tweet?text=${shareText}&url=${shareUrl}`;
@@ -910,8 +1164,17 @@
     document.getElementById('rd-btn').href =
       `https://www.reddit.com/submit?url=${shareUrl}&title=${shareText}`;
 
+    document.getElementById('tg-btn').href =
+      `https://t.me/share/url?url=${shareUrl}&text=${shareText}`;
+
+    document.getElementById('fb-btn').href =
+      `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+
+    document.getElementById('wa-btn').href =
+      `https://wa.me/?text=${shareText}%20${shareUrl}`;
+
     function copyLink() {
-      navigator.clipboard.writeText('https://etzubasa.github.io/solo-leveling-petition/').then(() => {
+      navigator.clipboard.writeText(PETITION_URL).then(() => {
         alert('✔ Link copied! Share it everywhere, Hunter.');
       });
     }
